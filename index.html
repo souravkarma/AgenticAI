@@ -1,38 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AI & Data Science Blogs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Auto AI Blog Generator</title>
   <style>
-    body { font-family: 'Roboto', sans-serif; padding: 40px; background: #f9f9f9; }
-    .post { background: white; padding: 20px; margin: 20px 0; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-    .post h2 { color: #002D62; }
-    .date { color: #777; font-size: 0.9em; }
+    body { font-family: Arial; text-align: center; padding: 40px; background: #f4f4f4; }
+    input, button { padding: 12px; margin: 10px; font-size: 16px; }
+    button { background: #002D62; color: white; border: none; border-radius: 8px; cursor: pointer; }
   </style>
 </head>
 <body>
-  <h1>Latest AI & Data Science Blogs</h1>
-  <div id="posts"></div>
-
-  <script>
-    fetch('https://api.github.com/repos/souravkarma/your-portfolio-repo/contents/blogs')
-      .then(r => r.json())
-      .then(files => {
-        const mdFiles = files.filter(f => f.name.endsWith('.md')).sort((a,b) => b.name.localeCompare(a.name));
-        const container = document.getElementById('posts');
-        mdFiles.forEach(f => {
-          fetch(f.download_url).then(r => r.text()).then(md => {
-            const title = md.split('\n')[0].replace(/^# /, '');
-            const date = f.name.match(/\d{4}-\d{2}-\d{2}-\d{2}-\d{2}-\d{2}/)[0].replace(/-/g, ':').slice(0,16).replace(/:/g, '-');
-            container.innerHTML += `
-              <div class="post">
-                <h2><a href="${f.html_url}" target="_blank">${title}</a></h2>
-                <p class="date">${date}</p>
-                <p>${md.split('\n').slice(1,4).join(' ')}...</p>
-              </div>`;
-          });
-        });
-      });
-  </script>
+  <h1>Auto AI Blog Generator</h1>
+  <p>Generates a new blog <strong>every 60 seconds</strong> and posts to X!</p>
+  <form action="/generate" method="post">
+    <input type="text" name="topic" placeholder="Or enter custom topic" style="width: 300px;">
+    <button type="submit">Generate Now</button>
+  </form>
+  <p><a href="/blogs">View All Blogs</a></p>
 </body>
 </html>
