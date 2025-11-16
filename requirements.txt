@@ -1,0 +1,15 @@
+langchain
+langgraph
+langchain_community
+langchain_core
+langchain_groq
+fastapi
+uvicorn
+watchdog
+#langchain-cil[inmem]
+fastapi
+uvicorn
+langchain
+langchain-groq
+pydantic
+python-multipart
