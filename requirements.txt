@@ -14,3 +14,6 @@ langchain-groq
 langchain
 pydantic
 python-multipart
+langchain-core
+langchain-groq
+requests
