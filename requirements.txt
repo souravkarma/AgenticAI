@@ -19,6 +19,10 @@ langchain-groq
 requests
 tweepy
 python-dotenv
+jinja2
+
+
+
 
 
 
