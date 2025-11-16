@@ -17,3 +17,6 @@ python-multipart
 langchain-core
 langchain-groq
 requests
+tweepy
+
+
