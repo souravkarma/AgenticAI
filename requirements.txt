@@ -8,8 +8,9 @@ uvicorn
 watchdog
 #langchain-cil[inmem]
 fastapi
-uvicorn
-langchain
+uvicorn[standard]
+langchain-core
 langchain-groq
+langchain
 pydantic
 python-multipart
